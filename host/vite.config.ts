@@ -2,22 +2,19 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import federation from "@originjs/vite-plugin-federation";
 
-const PORT = 4010;
-
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "remote",
-      filename: "remoteEntry.js",
-      exposes: {
-        "./RemoteLogo": "./src/shared/components/RemoteLogo/RemoteLogo.tsx",
+      name: "host",
+      remotes: {
+        remote: "http://localhost:4010/assets/remoteEntry.js",
+        assets: "http://localhost:4010/assets",
       },
       shared: ["react"],
     }),
   ],
-  base: `http://localhost:${PORT}`,
   build: {
     modulePreload: false,
     target: "esnext",
@@ -25,9 +22,9 @@ export default defineConfig({
     cssCodeSplit: false,
   },
   server: {
-    port: PORT,
+    port: 4001,
   },
   preview: {
-    port: PORT,
+    port: 4001,
   },
 });
