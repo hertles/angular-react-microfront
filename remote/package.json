@@ -1,10 +1,10 @@
 {
-  "name": "components-microfront",
+  "name": "remote",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start remote": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

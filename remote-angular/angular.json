@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "components-angular-microfront": {
+    "remote-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/components-angular-microfront",
+            "outputPath": "dist/remote-angular",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "components-angular-microfront:build:production"
+              "buildTarget": "remote-angular:build:production"
             },
             "development": {
-              "buildTarget": "components-angular-microfront:build:development"
+              "buildTarget": "remote-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,5 +98,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "90f1cbf4-7593-4a21-b0f6-cafcb395e422"
   }
 }
