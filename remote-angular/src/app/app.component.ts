@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {RemoteAngularLogoComponent} from './components/remote-angular-logo/remote-angular-logo.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  standalone: true,
+  imports: [RemoteAngularLogoComponent, RouterOutlet]
 })
 export class AppComponent {
-  title = 'remote-angular';
+  public count = 0;
+
+  public onCounterClick = () => {
+    this.count += 1;
+  }
 }
