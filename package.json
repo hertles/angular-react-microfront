@@ -1,0 +1,10 @@
+{
+  "name": "react-angular-microfronted",
+  "version": "1.0.0",
+  "scripts": {
+    "start:remote": "cd remote && npm run \"preview remote\"",
+    "start:remote-angular": "cd remote-angular && npm run \"preview remote-angular\"",
+    "start:host": "cd host && npm run \"dev host\"",
+    "start:all": "npx concurrently -k -s first -n remote,remote-angular,host -c cyan,magenta,yellow \"npm run start:remote\" \"npm run start:remote-angular\" \"npm run start:host\""
+  }
+}

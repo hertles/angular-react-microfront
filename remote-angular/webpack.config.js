@@ -12,6 +12,9 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    open: false,
+  },
   ...withModuleFederationPlugin({
     name: "remote-angular",
     exposes: {
