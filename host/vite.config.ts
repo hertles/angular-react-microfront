@@ -10,7 +10,7 @@ export default defineConfig({
       name: "host",
       remotes: {
         remote: "http://localhost:4010/assets/remoteEntry.js",
-        assets: "http://localhost:4010/assets",
+        remoteAngular: "http://localhost:4020/remoteEntry.js",
       },
       shared: ["react"],
     }),

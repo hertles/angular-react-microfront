@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import plural from "../../utils/plural.ts";
 
 const classes = {
   logoContainer: css({
@@ -17,19 +18,25 @@ const classes = {
   }),
   counter: css({
     padding: "2em",
+    border: "1px solid transparent",
     button: {
       fontSize: "2em",
+      "&:hover": {
+        borderColor: "#61dafb",
+      },
     },
   }),
 };
 
+const VOTES_PLURAL_TITLES = ["голос", "голоса", "голосов"];
+
 interface RemoteLogoProps {
-  value: number;
+  count: number;
   onCounterClick: () => void;
 }
 
 export default function RemoteLogo(props: RemoteLogoProps) {
-  const { value, onCounterClick } = props;
+  const { count, onCounterClick } = props;
 
   return (
     <div className={classes.logoContainer}>
@@ -41,7 +48,9 @@ export default function RemoteLogo(props: RemoteLogoProps) {
         />
       </a>
       <div className={classes.counter}>
-        <button onClick={() => onCounterClick()}>count is {value}</button>
+        <button onClick={() => onCounterClick()}>
+          {count} {plural(count, VOTES_PLURAL_TITLES)}
+        </button>
       </div>
     </div>
   );
